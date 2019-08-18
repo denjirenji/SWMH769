@@ -1,33 +1,49 @@
 const Lexer = require("./lexer");
 
 /**
- * 
- * @param {string} data 
+ * parses the tokens
+ * @param {{ type: string, value: string }[]} tokens
+ * @param {number} current
  */
-const parse = (data) => {
-    try {
-        const matches = [];
+const parseToken = (tokens, current) => {
+  return tokens[current];
+};
 
-        const lexer = Lexer.createLexer(match => {
-            matches.push(match);
-        })
-        lexer.setInput(data).lex();
+/**
+ * Parses the input data
+ * @param {string} data
+ */
+const parse = data => {
+  try {
+    // Create a new lexer
+    const tokens = Lexer.getTokens(data);
 
-        const parsed = {};
+    // This will become the AST
+    const parsed = [];
 
-        matches.forEach(match => {
-            Object.keys(match.value).forEach(key => {
-                parsed[key] = match.value[key];
+    // Iterate over the tokens
+    let i = 0;
 
-            });
-        });
-        return parsed;
+    // Keep iterating until we have reached 
+    // the end of file token
+    while (tokens[i].type != "EOF") {
+      // Parse the token
+      const res = parseToken(tokens, i);
+
+      // Add the result to the AST
+      parsed.push(res);
+
+      // increment counter
+      i++;
     }
-    catch (err) {
-        throw new Error("Could not parse file");
-    };
+
+    return parsed;
+  } catch (err) {
+    // Something went wrong when parsing the file
+    throw new Error("Could not parse file");
+  }
 };
 
 module.exports = {
-    parse
+  parse
 };
