@@ -1,0 +1,9 @@
+{
+  "name": "769SWMH",
+  "version": "0.0.1",
+  "description": "Parser for CKII Mods Files.",
+  "main": "./src/index.js",
+  "author": "Joshua Goodwin",
+  "license": "MIT",
+  "private": true
+}
