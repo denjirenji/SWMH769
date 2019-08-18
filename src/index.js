@@ -1,5 +1,5 @@
-const read = require('./reader');
-const parse = require('./parser');
+const reader = require('./reader');
+const parser = require('./parser');
 
-const contents = read('./samples/1.txt');
-const result = parse(contents);
+const contents = reader.read('./samples/1.txt');
+const result = parser.parse(contents);

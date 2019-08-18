@@ -8,9 +8,10 @@
   "private": true,
   "scripts": {
     "start": "node ./src/index.js",
-    "test" : "jest"
+    "test": "jest"
   },
   "dependencies": {
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "lex": "^1.7.9"
   }
 }
