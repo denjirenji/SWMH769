@@ -5,5 +5,8 @@
   "main": "./src/index.js",
   "author": "Joshua Goodwin",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "start": "node ./src/index.js"
+  }
 }
